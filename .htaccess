@@ -1,0 +1,7 @@
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+
+RewriteRule ^clan/([0-9a-zA-Z-]+) clan.php?clan=$1 [NC]
+RewriteRule ^createclan createclan.php [NC]

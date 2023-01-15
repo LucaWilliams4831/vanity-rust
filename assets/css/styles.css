@@ -1,0 +1,954 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap');
+
+body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	background: linear-gradient(to left, #191c23, #23272e, #262a31);
+	height: 100vh;
+}
+
+* {
+	font-family: 'Inter', sans-serif;
+}
+
+.clanspage-header {
+	color: white;
+	letter-spacing: 4.1px;
+}
+
+.clanspage-header span {
+	color: #6faadc;
+}
+
+/* Navbar */
+.navbar-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-top: 40px;
+}
+
+.navbar-links {
+	display: flex;
+	align-items: center;
+	list-style: none;
+}
+
+.navbar-logo {
+	width: 60px;
+	margin-left: 105px;
+}
+
+.navbar-option {
+	cursor: pointer;
+	margin-right: 50px;
+	font-size: 20px;
+}
+
+.navbar-option a {
+	text-decoration: none;
+	color: rgba(255, 255, 255, 57%);
+}
+
+.navbar-option a.active {
+	color: #ffff;
+}
+
+.navbar-option a:hover {
+	color: #ffff;
+}
+
+.navbar-profile-wrapper {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-right: 105px;
+	cursor: pointer;
+	padding: 5px 5px;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+}
+
+.navbar-profile-data {
+	display: flex;
+	align-items: center;
+}
+
+.navbar-profile-options {
+	position: absolute;
+	top: -100px;
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+
+.navbar-profile-option.logout {
+	padding: 9px 37px;
+	font-size: 16px;
+	color: #fff;
+	background-color: rgb(153, 19, 19, 0.7);
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	cursor: pointer;
+	text-decoration: none;
+	opacity: 0;
+	transition: opacity 0.5s ease;
+}
+
+.navbar-profile-data:hover .navbar-profile-options {
+	top: 65px;
+	opacity: 1;
+}
+
+.navbar-profile-data:hover .navbar-profile-option.logout {
+	opacity: 1;
+}
+
+.navbar-login-button {
+	padding: 8px 20px;
+	font-size: 18px;
+	color: #fff;
+	background-color: #6faadc;
+	border-radius: 10px;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.navbar-profile-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.navbar-profile-avatar {
+	max-width: 40px;
+	max-height: 40px;
+	margin-left: 5px;
+	margin-right: 15px;
+	border-radius: 50%;
+}
+
+.navbar-profile-container h1 {
+	color: #ffff;
+	font-size: 20px;
+	font-weight: 400;
+}
+
+.navbar-notification-icon {
+	width: 20px;
+	margin-right: 20px;
+}
+
+.fa-arrow-right-to-bracket {
+	margin-right: 10px;
+}
+
+.navbar-notification-wrapper {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.navbar-notification-container {
+	cursor: default;
+	display: none;
+	opacity: 0;
+	position: absolute;
+	background-color: #13161b;
+	top: 23px;
+	width: 350px;
+	padding: 5px 5px 0 5px;
+	transition: opacity 0.3s ease-in-out;
+	border-radius: 10px;
+}
+
+.navbar-notification {
+	cursor: default;
+	background-color: #23272e;
+	padding: 2px 15px;
+	margin-bottom: 5px;
+	border-radius: 10px;
+}
+
+.navbar-notification h1 {
+	font-size: 15px;
+}
+
+.navbar-notification h1 > span {
+	color: #6faadc;
+}
+
+.notification-buttons {
+	margin-bottom: 10px;
+}
+
+.notification-button {
+	cursor: pointer;
+	border: none;
+	outline: none;
+	border-radius: 10px;
+	padding: 5px 10px;
+	color: white;
+	transition: 0.2s ease-in-out;
+}
+
+.notification-button.approve {
+	background-color: rgb(43, 124, 43);
+	margin-right: 10px;
+}
+
+.notification-button.approve:hover {
+	background-color: rgb(30, 82, 30);
+}
+
+.notification-button.approve.disabled {
+	background-color: rgb(70, 70, 70);
+	pointer-events: none;
+	cursor: default;
+}
+
+.notification-button.decline {
+	background-color: rgb(114, 40, 40);
+}
+
+.notification-button.decline:hover {
+	background-color: rgb(85, 30, 30);
+}
+
+.navbar-notification-wrapper:hover .navbar-notification-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	opacity: 1;
+}
+
+/* SERVER SELECTOR */
+.server-select-container {
+	display: flex;
+	align-items: center;
+}
+
+.server {
+	cursor: pointer;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	letter-spacing: 4px;
+	padding: 20px 30px;
+}
+
+.server img {
+	width: 30px;
+	margin-right: 15px;
+}
+
+.server.left {
+	background-color: #6faadc;
+	border-top-left-radius: 12px;
+	border-bottom-left-radius: 12px;
+}
+
+.server.center {
+	position: relative;
+	background-color: #ff7373;
+}
+
+.server.right {
+	position: relative;
+	background-color: #874c9e;
+	border-top-right-radius: 12px;
+	border-bottom-right-radius: 12px;
+}
+
+.server.center.disabled,
+.server.right.disabled {
+	cursor: default;
+}
+
+.server.center.disabled::after,
+.server.right.disabled::after {
+	position: absolute;
+	content: '';
+	width: 100%;
+	height: 100%;
+	background-color: rgba(41, 41, 41, 0.6);
+}
+
+/* CLAN HOMEPAGE */
+.clans-homepage-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 100px;
+}
+
+.clans-homepage-searchbox {
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+
+.clans-homepage-search {
+	background-color: #777777;
+	color: white;
+	padding: 10px 0px 10px 55px;
+	font-size: 22px;
+	outline: none;
+	border: none;
+	border-radius: 10px;
+}
+
+.clans-homepage-search::placeholder {
+	color: rgba(255, 255, 255, 0.45);
+}
+
+.clans-homepage-searchicon {
+	position: absolute;
+	font-size: 22px;
+	left: 18px;
+	color: white;
+}
+
+.clans-homepage-actions {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 50px;
+}
+
+.clans-homepage-buttons {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-left: 25px;
+}
+
+.clans-homepage-linkbutton {
+	cursor: pointer;
+	color: #fff;
+	font-size: 16px;
+	border-radius: 12px;
+	padding: 10px 20px;
+	border: none;
+	text-decoration: none;
+}
+
+.clans-homepage-linkbutton.createclan {
+	background: linear-gradient(#6faadc, #63a3d8, #5a9dd5);
+}
+
+.clans-homepage-linkbutton.myclan {
+	background: linear-gradient(to right, #7a00a1, #8303ac, #9c0cca, #b315e5);
+}
+
+.clans-homepage-clans {
+	display: grid;
+	grid-template-areas: 'one two three four five six seven';
+	margin-top: 70px;
+	row-gap: 50px;
+	margin-bottom: 100px;
+}
+
+.clans-homepage-clan {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-decoration: none;
+	color: white;
+	margin-left: 50px;
+	transform: scale(1);
+	transition: transform 0.1s ease;
+}
+
+.clans-homepage-clan.left {
+	margin-left: 0px;
+}
+
+.clans-homepage-clan:hover {
+	transform: scale(1.1);
+}
+
+.clans-homepage-clan-avatar {
+	width: 180px;
+	border-radius: 50%;
+	filter: drop-shadow(6px 1px 10px black);
+}
+
+.clans-homepage-clan-rating {
+	position: absolute;
+	bottom: -12px;
+}
+
+.clans-homepage-rating {
+	width: 40px;
+	filter: drop-shadow(10px 1px 5px black);
+}
+
+.clans-homepage-clan h1 {
+	position: absolute;
+	bottom: -90px;
+	max-width: 180px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	color: rgba(255, 255, 255, 0.4);
+}
+
+/* VIEW CLAN */
+.clans-view-wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 100px;
+}
+
+.clans-view-bio {
+	color: rgba(255, 255, 255, 0.685);
+	max-width: 50%;
+	text-align: center;
+	margin-top: -10px;
+	font-weight: 300;
+	font-size: 24px;
+}
+
+.clans-view-avatar {
+	width: 200px;
+	height: 200px;
+	margin-bottom: 15px;
+}
+
+.clans-view-members-header {
+	margin-top: 40px;
+	color: white;
+	background-color: #2a2a33;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+	padding: 1px 100px;
+	text-align: center;
+}
+
+.clans-view-container {
+	width: 50%;
+	margin-bottom: 100px;
+}
+
+.clans-view-member {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	background-color: #31313a;
+	justify-content: space-between;
+	padding-inline: 20px;
+	color: white;
+}
+
+.clans-view-noinvs {
+	margin: 0;
+	background-color: #31313a;
+	padding: 20px 0;
+	text-align: center;
+	font-weight: 300;
+	color: #fff;
+}
+
+.clans-view-membername {
+	display: flex;
+	align-items: center;
+}
+
+.clans-view-memberavatar {
+	max-width: 40px;
+	margin-right: 10px;
+}
+
+.clans-view-membername a {
+	font-weight: 300;
+	text-decoration: none;
+	color: #fff;
+	transition: 0.2s ease-in-out;
+}
+
+.clans-view-membername a:hover {
+	color: #6faadc;
+}
+
+.clans-view-steamprofile,
+.clans-view-revokeinvite {
+	border: none;
+	cursor: pointer;
+	background: linear-gradient(#6faadc, #63a3d8, #5a9dd5);
+	padding: 10px;
+	border-radius: 15px;
+	font-size: 12px;
+	color: white;
+	text-decoration: none;
+}
+
+.clans-view-revokeinvite {
+	background: rgb(114, 6, 6);
+}
+
+.clans-view-revokeinvite:hover {
+	background: rgb(92, 5, 5);
+}
+
+.clans-view-steamprofile:hover {
+	background: #527da3;
+}
+
+.clans-view-membericons {
+	display: flex;
+	align-items: center;
+	margin-left: 12px;
+}
+
+.clans-view-icon {
+	max-width: 20px;
+	pointer-events: none;
+	user-drag: none;
+	-webkit-user-drag: none;
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+
+.clans-view-invite-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-top: 40px;
+	width: 100%;
+}
+
+.clans-view-invite-container div {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.clan-view-inviteheader > h1 {
+	color: white;
+}
+
+.clan-view-inviteheader > h1 > span {
+	color: #6faadc;
+}
+
+.clans-view-invite-container input {
+	outline: none;
+	border: none;
+	background-color: #31313a;
+	color: #fff;
+	padding: 10px;
+	width: 98%;
+}
+
+.clan-view-inviteheader > input {
+	border: none;
+	cursor: pointer;
+	outline: none;
+	color: white;
+	background: linear-gradient(#6faadc, #63a3d8, #5a9dd5);
+	padding: 8px 20px;
+	border-radius: 15px;
+	margin-right: 10px;
+	width: auto;
+}
+
+.clans-view-invite-container button:hover {
+	background: #527da3;
+}
+
+.clan-view-inviteheader {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.clan-view-invitesection {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.clan-view-invitesection.error {
+	padding: 1px 2px 0px 2px;
+	background-color: rgb(104 5 5);
+}
+
+.clan-view-error {
+	color: white;
+	font-size: 14px;
+	margin: 0;
+	padding: 5px 0;
+}
+
+.clans-view-invitelist-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.clans-view-invitelist-header {
+	margin-top: 40px;
+	color: white;
+	background-color: #2a2a33;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+	padding: 15px 0;
+	text-align: center;
+	width: 100%;
+	margin-bottom: 0;
+}
+
+.clans-view-invitelist {
+	width: 100%;
+}
+
+/* CREATE CLAN */
+.clans-create-wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	row-gap: 10px;
+	padding-top: 50px;
+}
+
+.clans-create-container {
+	display: flex;
+	align-items: center;
+	column-gap: 80px;
+}
+
+.clans-create-avatarsection {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	row-gap: 20px;
+}
+
+.clans-create-avatarsection label {
+	margin-top: 20px;
+	margin-bottom: -20px;
+	font-size: 14px;
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.clans-create-infosection {
+	display: flex;
+	flex-direction: column;
+	row-gap: 30px;
+}
+
+.clans-create-avatar {
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+}
+
+.clans-create-header {
+	margin-top: 20px;
+}
+
+.clans-create-header label {
+	display: flex;
+	align-items: center;
+	column-gap: 10px;
+	color: white;
+	letter-spacing: 4.1px;
+	font-size: 22px;
+	margin-bottom: 10px;
+}
+
+.clans-create-header label > span {
+	color: #9b9b9b;
+	font-size: 10px;
+}
+
+.clans-create-header input,
+.clans-create-header textarea {
+	background-color: #777777;
+	color: white;
+	border: none;
+	outline: none;
+	border-radius: 10px;
+	font-size: 20px;
+	padding: 10px 20px;
+}
+
+.clans-create-header input::placeholder,
+.clans-create-header textarea::placeholder {
+	color: rgba(255, 255, 255, 0.4);
+}
+
+.clans-create-sumbitclan,
+.clans-create-avatarupload {
+	cursor: pointer;
+	color: white;
+	background: linear-gradient(#6faadc, #63a3d8, #5a9dd5);
+	border: none;
+	border-radius: 25px;
+	padding: 15px 30px;
+	font-size: 18px;
+	margin-top: 30px;
+}
+
+.clans-create-avatarupload {
+	border-radius: 12px;
+	padding: 10px 20px;
+	margin-top: 20px;
+}
+
+.clans-create-sumbitclan:hover,
+.clans-create-avatarupload:hover {
+	background: #5a85ac;
+}
+
+.block-picker {
+	display: none;
+}
+
+.color-selector:focus .block-picker {
+	display: block;
+}
+
+.clans-create-error {
+	background-color: rgb(116, 15, 15);
+	border-radius: 20px;
+	padding: 5px 20px;
+}
+
+.clans-create-error h1 {
+	font-size: 18px;
+	font-weight: 300;
+	color: white;
+}
+
+.clan-view-deletecontainer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	margin-top: 40px;
+}
+
+.clan-delete-button {
+	font-size: 20px;
+	cursor: pointer;
+	border: none;
+	color: rgb(196, 75, 75);
+	background-color: transparent;
+	text-align: center;
+	transition: 0.2s ease-in-out;
+}
+
+.clan-delete-button:hover {
+	color: rgb(102, 16, 16);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input[type='number'] {
+	-moz-appearance: textfield;
+}
+
+/* PROFILE */
+.profile-homepage-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding-top: 100px;
+	width: 60%;
+	margin: 0 auto;
+}
+
+.profile-userinfo-wrapper {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	margin-bottom: 60px;
+}
+
+.profile-user-avatar {
+	width: 100px;
+	border-radius: 50%;
+}
+
+.profile-userinfo-container {
+	margin-left: 30px;
+}
+
+.profile-userinfo-container h1 {
+	color: white;
+	margin: 0;
+}
+
+.profile-userinfo-container p {
+	color: rgb(156, 156, 156);
+	margin: 0;
+}
+
+.profile-currentclan-container {
+	position: relative;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	background: linear-gradient(to right, #1e232b, #222831, 85%, #394352);
+	padding: 30px;
+	max-height: 80px;
+	margin-bottom: 80px;
+	transform: scale(1);
+	transition: transform 0.2s ease-in-out;
+}
+
+.profile-currentclan-container:hover {
+	transform: scale(1.05);
+}
+
+.profile-currentclaninfo-container {
+	display: flex;
+	flex-direction: column;
+	margin-left: 50px;
+}
+
+.profile-currentclan-clanavatar {
+	width: 80px;
+}
+
+.profile-currentclan-clanname {
+	margin: 0;
+	color: #fff;
+	line-height: 40px;
+	max-width: 650px;
+}
+
+.profile-currentclan-clanbio {
+	margin: 0;
+	color: rgb(173, 173, 173);
+	max-width: 650px;
+	max-height: 40px;
+	overflow: hidden;
+}
+
+.profile-currentclan-container a {
+	position: absolute;
+	border: none;
+	cursor: pointer;
+	background: linear-gradient(#6faadc, #63a3d8, #5a9dd5);
+	padding: 10px 20px;
+	border-radius: 15px;
+	color: white;
+	font-size: 20px;
+	right: 60px;
+	text-decoration: none;
+}
+
+.profile-currentclan-container a:hover {
+	background: #527da3;
+}
+
+.profile-linkedaccounts-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.profile-account {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	color: #fff;
+	border-radius: 10px;
+	width: 35%;
+	padding: 20px;
+	text-decoration: none;
+	transition: all 0.2s ease-in-out;
+}
+
+.profile-account.steam {
+	margin-right: 50px;
+	background-color: #171a21;
+}
+
+.profile-account.steam:hover {
+	background-color: #212630;
+}
+
+.profile-account.discord {
+	background-color: #5464a1;
+}
+
+.profile-account.discord:hover {
+	background-color: #6b80d1;
+}
+
+.profile-linked-background {
+	position: absolute;
+	z-index: 1;
+	right: 20px;
+}
+
+.profile-linked-headings {
+	display: flex;
+	flex-direction: column;
+	margin-left: 20px;
+}
+
+.profile-linked-avatar {
+	border-radius: 50%;
+	width: 50px;
+	z-index: 2;
+}
+
+.profile-linked-name {
+	margin: 0;
+	color: #fff;
+	z-index: 2;
+	max-width: 178px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.profile-linkedsteam-status {
+	margin: 0;
+	font-weight: 700;
+	font-size: 14px;
+	color: #127a08;
+	margin-top: 5px;
+}
+
+.profile-unlinkeddiscord-status,
+.profile-linkeddiscord-status {
+	margin: 0;
+	font-weight: 700;
+	font-size: 14px;
+	color: #611103;
+	margin-top: 5px;
+}
+
+.profile-linkeddiscord-status {
+	color: #127a08;
+}
+
+.profile-account.discord.unlinked {
+	cursor: default;
+}
+
+.profile-account.discord.unlinked:hover {
+	background: #5464a1;
+}
